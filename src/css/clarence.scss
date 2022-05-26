@@ -1,0 +1,164 @@
+@import "./font-awesome.css";
+
+.hide {
+  display: none !important;
+}
+
+.player-slider {
+  height: 4px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+}
+
+.player-icon {
+  color: white;
+}
+
+.pb-btn {
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.bcp-wrapper {
+    position: relative;
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    .bcp-controls {
+      display: flex;
+      position: absolute;
+      flex-wrap: wrap;
+      width: 100%;
+      height: 74px;
+      bottom: 0;
+      background-image: linear-gradient(0deg, #2a2158, transparent);
+      opacity: 0;
+      transition: 0.2s opacity;
+
+      .seeker-container {
+        width: 100%;
+        padding: 0 14px;
+
+        .seeker-slider {
+          @extend .player-slider;
+          -webkit-appearance: none;
+          width: 100%;
+          opacity: 0.86;
+          -webkit-transition: .2s;
+          transition: opacity .2s;
+          cursor: pointer;
+        }
+        
+        .seeker-slider:hover {
+          opacity: 1;
+        }
+        
+        .seeker-slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #04AA6D;
+          cursor: pointer;
+        }
+        
+        .seeker-slider::-moz-range-thumb {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: #04AA6D;
+          cursor: pointer;
+        }
+      }
+
+      .control-buttons-container {
+        display: inline-flex;
+        width: 100%;
+        padding: 0 18px;
+        margin-bottom: 12px;
+        justify-content: space-between;
+        column-gap: 22px;
+
+        .cbc-left-section, .cbc-right-section, .cbc-center-section {
+          display: inline-flex;
+          align-items: center;
+        }
+
+        .cbc-left-section, .cbc-right-section {
+          width: 25%;
+        }
+
+        .cbc-left-section {
+          column-gap: 4px;
+
+          .speaker-icon {
+            font-size: 12px;
+            color: rgb(182, 182, 182);
+          }
+
+          .volume-ctrl-slider {
+            @extend .player-slider;
+            width: 90%;
+            cursor: pointer;
+          }
+
+          .volume-ctrl-slider::-moz-range-thumb {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+          }
+          
+          .volume-ctrl-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+          }
+        }
+
+        .cbc-center-section {
+          width: 50%;
+          justify-content: center;
+          column-gap: 24px;
+
+          .time-display {
+            font-size: 12px;
+            color:rgb(182, 182, 182);
+          }
+
+          .pb-btn.play-btn, .pb-btn.pause-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 28px;
+            width: 28px;
+            border: solid white 2px;
+            border-radius: 50%;
+          }
+        }
+
+        .cbc-right-section {
+          justify-content: flex-end;
+          column-gap: 12px;
+
+          #rp-btn {
+            color: white;
+          }
+
+          #rp-btn.repeated {
+            color: red;
+          }
+        }
+      }
+    }
+
+    .bcp-controls:hover {
+      opacity: 1;
+    }
+}
